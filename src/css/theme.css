@@ -1,0 +1,35 @@
+
+header {
+	background-color:#2aabd2;
+	color:#ffff00;
+	height: 80px;
+}
+
+/*-----------------------------------------*/
+
+.headUP{
+	padding-top:30px;
+}
+
+header .headUP a{
+	color:#ffff00;
+	margin: 30px;
+}
+
+/*-----------------------------------------*/
+
+.container-fluid .row a{
+	//border-right: 1px solid;
+	//border-left: 1px solid;
+	height:50px;
+	background-color:#ffff00;
+	padding-top:15px;
+}
+
+/*-----------------------------------------*/
+
+#content1{
+	background-color:#8c8c8c;
+	height:500px;
+}
+

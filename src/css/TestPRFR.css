@@ -1,0 +1,67 @@
+
+
+
+body{
+	background-color:#f0fff0;
+}
+
+
+header{
+	background-color:#d6e9c6;
+	}
+
+#textBefore{
+	font-size:29px;
+}
+#divStartTest{
+	width: 100px;
+	margin: auto;
+}
+
+/*  --    габариты модального окна  --  */
+#ModalStart div div{
+	width:500px; 
+	height:200px;
+}
+#myForm  button{    
+	width:50px; 
+	height:50px; 
+	margin:30px
+	
+}
+/*
+.btnCloseModal{
+	width:90px; 
+	height:20px;
+//margin: 0 auto;
+text-align: center; 
+}
+*/
+
+#newTable{
+	background-color:#f0ff00;
+	/*height:90%;*/
+	/*width:20%;*/
+	/*margin:10%;*/
+	/*margin-left:100px;*/
+}
+#newTable td{
+	/*height:90%;*/
+	border:2px solid;
+	text-align: center;
+	font-size: 30px;
+	/*width: 10px;*/
+    /*height: 100px;*/ 
+}
+/*
+.btnReStartTest button{
+	height:60px;
+}
+*/
+.btnReStartTest button{
+	float: right;
+	float: top;
+	width: 60px;
+	height:60px;
+}
+

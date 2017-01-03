@@ -1,0 +1,181 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="keyword" content="test, site,website">    <!-- для поискового робота (ключевые слова для поиска,(не актуал)-->
+		<meta name="description" content="ОПИСАНИЕ САЙТА">    <!-- для поискового робота(что отображается в поисковике)-->
+		<link rel="shortcut icon" type="image/x-icon" href="" />    <!-- логотип сайта (brjyrf)    -->
+		<title>Заголовок</title>
+		<link href="src/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="src/css/TestPRFR.css" />    <!-- css    -->
+	</head>	
+	<body>
+
+
+	<!--    -->
+	<!--    -->
+	<!--     -->
+	<!--    -->
+	<!--    -->
+	<!--    -->
+
+	<!-- кнопка отмены тестирования в любой момент -->
+	<div class="btnReStartTest hidden">
+		<button type="button"  onclick="HiddenInstruction(1)">прекратить тест</button>
+	</div>
+	
+		<!--
+		<header style="height:100px">
+		</header>
+		-->
+		
+	<!-- инструкция -->
+	<div id="textBefore" >
+		Предложение выполнить тест, его описвние и инструкции.
+	</div>
+	
+	<!-- кнопка для начала теста , открывает модальное окно -->
+	<div  id="divStartTest">
+		<button id="btnStartTest" data-toggle="modal" data-target="#ModalStart">Начать тест</button>
+	</div>
+
+	<!-- модальное окно , выбор размеров таблицы-->
+	<div class="modal fade" id="ModalStart" >
+		<div class="modal-dialog" >
+			<div class="modal-content" >
+				<button class="close" type="button" data-dismiss="modal">&times</button>
+				<!--    ------------------------    -->
+						<form id ="myForm">
+							<label> Введите число ячеек </label><br/>
+							<!-- <input type="text" id="inputSixeCell"/><br/>-->
+							<button type="button" data-dismiss="modal" onclick="fncStartTestModal(16)">16</button>
+							<button type="button" data-dismiss="modal" onclick="fncStartTestModal(25)">25</button>
+							<button type="button" data-dismiss="modal" onclick="fncStartTestModal(36)">36</button>
+							<button type="button" data-dismiss="modal" onclick="fncStartTestModal(49)">49</button> 							
+							<br/>
+							
+							<!-- <button class="btnCloseModal" type="button" data-dismiss="modal" onclick="fncStartTestModal(0)">закрыть окно</button>-->
+						</form>
+				<!--    -------------------------    -->
+			</div>
+		</div>
+	</div>
+
+
+	<div  id="newTable"><!--
+		<table id="tableID" class="table table-bordered" >
+		   <tr>
+				<td >1</td>   <td >1</td>   <td >1</td>  <td >1</td>  <td >1</td>
+		   <tr>
+		   <tr>
+				<td >1</td>   <td >1</td>   <td >1</td>  <td >1</td>  <td >1</td>
+			<tr>
+			<tr>
+				<td >1</td>   <td >1</td>   <td >1</td>  <td >1</td>  <td >1</td>
+			<tr>
+			<tr>
+				<td >1</td>   <td >1</td>   <td >1</td>  <td >1</td>  <td >1</td>
+			<tr>
+			<tr>
+				<td >1</td>   <td >1</td>   <td >1</td>  <td >1</td>  <td >1</td>
+			<tr>
+		</table>-->
+	</div>
+	
+	
+    <footer>
+
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="src/js/jquery-3.1.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="src/js/bootstrap.min.js"></script>
+
+		<script>
+
+			var scrinHeight = document.documentElement.clientHeight;
+			var scrinWidth = document.documentElement.clientWidth;
+			
+			function HiddenInstruction(hidUNhid){
+				if(hidUNhid == 0){
+					$('#textBefore').addClass('hidden');
+					$('#btnStartTest').addClass('hidden');
+					$('.btnReStartTest').removeClass('hidden');
+				}else if(hidUNhid != 0){
+					$('#newTable').empty();
+					$('#textBefore').removeClass('hidden');
+					$('#btnStartTest').removeClass('hidden');
+					$('.btnReStartTest').addClass('hidden');
+				}
+			}
+			<!--  вызывается после модального окна принажатии кнопки -->
+			function fncStartTestModal(vsiz){
+				//var s = $('#inputSixeCell').val();
+
+				scrinHeight = document.documentElement.clientHeight;
+			var scrinWidth = document.documentElement.clientWidth;
+			
+				//  сколько ячеек выбрал пользоаптель
+				var vtr = 0;      	//  количество строк
+				var vtd = 0;		//  количество столбцов
+				if(vsiz == 16){
+					vtr = 4;
+					vtd = 4;
+				}else if(vsiz == 25){
+					vtr = 5;
+					vtd = 5;
+				}else if(vsiz == 36){
+					vtr = 6;
+					vtd = 6;
+				}else if(vsiz == 49){
+					vtr = 7;
+					vtd = 7;
+				}
+				
+				//   таблица перерисовывается
+				$('#newTable').append('<table class="table table-bordered"></table>');   // table-bordered
+				for(var i=0; i < vtr; i++){
+					$('.table').append('<tr class="row_' + i + '"></tr>');
+					for(var j=0; j < vtd; j++){
+						$('.row_' + i).append('<td >2</td>');
+					}
+				}
+				//$("td").css("height")
+				//alert (Number("123px".substr(-100,"123px".lenght-2)));
+				//var s = "123px";
+				//alert (parseInt("123px", 10));
+						//высота промежутка сверху табл, зависит от высоты монитора
+				$('.btnReStartTest').css('height',(scrinHeight-(scrinHeight/9)*8)); 
+						//высота таблицы с учетом колич ячеек, зависит от высоты монитора и колич ячеек
+				$('td').css('height',((scrinHeight-(scrinHeight/9)*2))/vtr);  
+						// ширена табл = длине
+				$('#newTable').css('width',parseInt($("td").css("height"), 10)*vtr+"px"); 
+						// Отступ таблицы слева, зависит от кол ва ячеек
+				$('#newTable').css('margin-left',(scrinWidth-parseInt($('#newTable').css('width'),10))/2+"px")
+						
+
+				HiddenInstruction(0);
+			}
+			
+			
+				/*$('body').append('<div class="aaa"></div>');
+				$('.aaa').css('height',document.documentElement.clientHeight);
+				$('.aaa').css('width','500px');
+				$('.aaa').css('background-color','#0c0f0f');*/
+//html
+			
+
+			
+			//$('#tableID').append('<a href = "!!!!!!!!!!">nnnnnnnn</a>');
+			//var tableCell = $('table td');
+			//var baseMassive = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+			//massive mix
+			//table create
+		</script>
+
+
+	</body>
+</html>

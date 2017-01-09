@@ -5,14 +5,17 @@ body{
 	background-color:#f0fff0;
 }
 
-
+/*
 header{
 	background-color:#d6e9c6;
-	}
+}*/
 
+/*  начальный текст  */
 #textBefore{
 	font-size:29px;
 }
+
+/*  модальное окно  */
 #divStartTest{
 	width: 100px;
 	margin: auto;
@@ -23,6 +26,8 @@ header{
 	width:500px; 
 	height:200px;
 }
+
+/* кнопоки выбора размера на модальном окне */
 #myForm  button{    
 	width:50px; 
 	height:50px; 
@@ -38,6 +43,7 @@ text-align: center;
 }
 */
 
+/* Тут будет рисоваться таблица   */
 #newTable{
 	background-color:#f0ff00;
 	/*height:90%;*/
@@ -45,6 +51,7 @@ text-align: center;
 	/*margin:10%;*/
 	/*margin-left:100px;*/
 }
+/* Тут будет рисоваться таблица  (ячейки) */
 #newTable td{
 	/*height:90%;*/
 	border:2px solid;
@@ -53,15 +60,23 @@ text-align: center;
 	/*width: 10px;*/
     /*height: 100px;*/ 
 }
-/*
-.btnReStartTest button{
-	height:60px;
+/*    не работает
+#divStartTest{
+	width:200px;   
+	height:200px;   
+	margin-left:50%;   
+}
+*/
+/*     работает некоректно
+.btnReStartTest{
+	margin-top:5%;
 }
 */
 .btnReStartTest button{
 	float: right;
 	float: top;
-	width: 60px;
+	width: 100px;
 	height:60px;
+	margin: 20px;
 }
 

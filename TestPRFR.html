@@ -31,7 +31,7 @@
 		</header>
 		-->
 		
-	<!-- инструкция -->
+	<!-- инструкция: начальный текст -->
 	<div id="textBefore" >
 		Предложение выполнить тест, его описвние и инструкции.
 	</div>
@@ -41,7 +41,7 @@
 		<button id="btnStartTest" data-toggle="modal" data-target="#ModalStart">Начать тест</button>
 	</div>
 
-	<!-- модальное окно , выбор размеров таблицы-->
+	<!-- модальное окно , выбора размеров таблицы-->
 	<div class="modal fade" id="ModalStart" >
 		<div class="modal-dialog" >
 			<div class="modal-content" >
@@ -86,19 +86,21 @@
 	
 	
     <footer>
-
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="src/js/jquery-3.1.1.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="src/js/bootstrap.min.js"></script>
+	<script src="src/js/jquery-3.1.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="src/js/bootstrap.min.js"></script>
 
-		<script>
+	<script src="src/js/mix.js"></script>
+	<script src="src/js/TestPRFR.js"></script>
+	<script>
 
 			var scrinHeight = document.documentElement.clientHeight;
 			var scrinWidth = document.documentElement.clientWidth;
 			
+			/*   прячет или показывает нужные элементы   */
 			function HiddenInstruction(hidUNhid){
 				if(hidUNhid == 0){
 					$('#textBefore').addClass('hidden');
@@ -111,12 +113,11 @@
 					$('.btnReStartTest').addClass('hidden');
 				}
 			}
-			<!--  вызывается после модального окна принажатии кнопки -->
+			
+			<!--  вызывается после модального окна при нажатии кнопки -->
 			function fncStartTestModal(vsiz){
-				//var s = $('#inputSixeCell').val();
-
 				scrinHeight = document.documentElement.clientHeight;
-			var scrinWidth = document.documentElement.clientWidth;
+			    scrinWidth = document.documentElement.clientWidth;
 			
 				//  сколько ячеек выбрал пользоаптель
 				var vtr = 0;      	//  количество строк
@@ -143,10 +144,6 @@
 						$('.row_' + i).append('<td >2</td>');
 					}
 				}
-				//$("td").css("height")
-				//alert (Number("123px".substr(-100,"123px".lenght-2)));
-				//var s = "123px";
-				//alert (parseInt("123px", 10));
 						//высота промежутка сверху табл, зависит от высоты монитора
 				$('.btnReStartTest').css('height',(scrinHeight-(scrinHeight/9)*8)); 
 						//высота таблицы с учетом колич ячеек, зависит от высоты монитора и колич ячеек
@@ -156,25 +153,21 @@
 						// Отступ таблицы слева, зависит от кол ва ячеек
 				$('#newTable').css('margin-left',(scrinWidth-parseInt($('#newTable').css('width'),10))/2+"px")
 						
-
+					// скрыть/показать нужные элементы
 				HiddenInstruction(0);
+				
+				/*  пересчет таблицы     "TestPRFR.js"  */ 
+				RehdreTable(vsiz)
+				
 			}
 			
 			
-				/*$('body').append('<div class="aaa"></div>');
-				$('.aaa').css('height',document.documentElement.clientHeight);
-				$('.aaa').css('width','500px');
-				$('.aaa').css('background-color','#0c0f0f');*/
-//html
-			
-
-			
-			//$('#tableID').append('<a href = "!!!!!!!!!!">nnnnnnnn</a>');
 			//var tableCell = $('table td');
 			//var baseMassive = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 			//massive mix
 			//table create
 		</script>
+		
 
 
 	</body>
